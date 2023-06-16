@@ -12,14 +12,16 @@ import { ServerNamesService } from '../services/server-names.service'
 export class NameListComponent{
 
   public letters =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+  private serverNamesService
   public names$
 
   constructor( serverNamesService : ServerNamesService ) {
+    this.serverNamesService = serverNamesService
     this.names$ = serverNamesService.getList().subscribe()
   }
 
   public selectLetter( letter : String ){
-    this.names$ = ServerNamesService.filterByLetter( letter )
+    this.names$ = this.serverNamesService.filterByLetter( letter )
   }
 
 

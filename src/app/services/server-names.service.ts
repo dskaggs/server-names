@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators'
   providedIn: 'root'
 })
 
-export class ServerNamesService {
+export class  ServerNamesService {
 
   private namesUrl = 'assets/data/names.json'
 
@@ -24,9 +24,9 @@ export class ServerNamesService {
   public filterByLetter( letter : String ){
 
     return this.http.get( this.namesUrl)
-
-      // TODO: Figure out how to take the above observable and filter to the requested starting letter
       //.pipe(filter(name => (  name.split('')[0].toLowerCase() === letter.toLowerCase() ));
+
+    // TODO: Figure out how to take the above observable and filter to the requested starting letter
 
   }
 
