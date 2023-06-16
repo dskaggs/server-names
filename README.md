@@ -1,27 +1,15 @@
-# ServerNaming
+# Server Naming Assistant
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+## About This Tool
 
-## Development server
+There's an old saying in technology circles that says "naming things is hard". 
+Network administrators and architects face this issue every time they need to 
+configure a new server or create a new virtual machine. There are many opinions 
+on naming schemes; from using element names from the periodic table, to characters from your favorite television series and beyond.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Several years ago I ran across a [blog post](https://www.cloudbees.com/blog/proper-server-naming-scheme) by Manuel Weiss detailing a scheme that I really liked. The basis of this scheme is a word list of 1626 words specifically selected for use as server names.
 
-## Code scaffolding
+This simple application is designed to be a way to quickly view and filter that word list when needing a name for a new server or VM.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Motivation
+This is a learning application for me as I've been out of front end development for several years and am trying to refresh my skills by building this simple application. So if you see something I've done completely wrong, I'm happy to take constructive criticism to make it better and learn things.
