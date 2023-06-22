@@ -1,33 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { from } from 'rxjs'
-import { filter } from 'rxjs/operators'
+import { BehaviorSubject, switchMap, from } from 'rxjs'
+import { filter, map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class  ServerNamesService {
+export class ServerNamesService {
 
   private namesUrl = 'assets/data/names.json'
+  private namesList = new BehaviorSubject<string[]>([])
+  private selectedLetter = new BehaviorSubject<string|undefined>(undefined)
+  readonly filteredList$ = this.selectedLetter.pipe(
+    switchMap( ( selectedLetter ) => this.namesList.pipe(
+      map( ( names ) => {
+        if (!selectedLetter){
+          return names
+        }
+        return names.filter( (name) => name.split('')[0].toLowerCase() === selectedLetter.toLowerCase() )
+
+      } )
+    ))
+  )
+  readonly namesList$ = this.namesList.asObservable()
 
   constructor( private http : HttpClient ) {
-    this.http = http
+    this.http.get<string[]>( this.namesUrl ).subscribe( (names) => {
+      this.namesList.next(names)
+    })
    }
 
-  public getList(){
-
-    return this.http.get( this.namesUrl )
-
-   }
-
-  public filterByLetter( letter : String ){
-
-    return this.http.get( this.namesUrl)
-      //.pipe(filter(name => (  name.split('')[0].toLowerCase() === letter.toLowerCase() ));
-
-    // TODO: Figure out how to take the above observable and filter to the requested starting letter
-
+  public filterByLetter( letter : string ){
+    this.selectedLetter.next( letter )
   }
 
   public search( term : String){

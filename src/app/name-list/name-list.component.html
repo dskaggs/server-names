@@ -1,4 +1,9 @@
 <div>
-  <p>| <span *ngFor="let letter of letters;"><a click( selectLetter(letter) )>{{ letter }}</a> | </span></p>
+  <p>| <span *ngFor="let letter of letters;" ><button (click)= "selectLetter(letter)">{{ letter }}</button> | </span>  </p>
 </div>
+
+<ng-container *ngIf="names$ | async as names" >
+  <span *ngFor="let name of names;">{{ name }} </span>
+
+</ng-container>
 

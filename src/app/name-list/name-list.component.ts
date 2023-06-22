@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ServerNamesService } from '../services/server-names.service'
@@ -12,16 +12,11 @@ import { ServerNamesService } from '../services/server-names.service'
 export class NameListComponent{
 
   public letters =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
-  private serverNamesService
-  public names$
+  private serverNamesService = inject(ServerNamesService)
+  public names$ = this.serverNamesService.filteredList$
 
-  constructor( serverNamesService : ServerNamesService ) {
-    this.serverNamesService = serverNamesService
-    this.names$ = serverNamesService.getList().subscribe()
-  }
-
-  public selectLetter( letter : String ){
-    this.names$ = this.serverNamesService.filterByLetter( letter )
+  public selectLetter( letter : string ){
+    this.serverNamesService.filterByLetter( letter )
   }
 
 
