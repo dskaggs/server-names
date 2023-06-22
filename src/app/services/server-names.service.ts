@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, switchMap, from } from 'rxjs'
-import { filter, map } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,13 @@ export class ServerNamesService {
 
   constructor( private http : HttpClient ) {
     this.http.get<string[]>( this.namesUrl ).subscribe( (names) => {
-      this.namesList.next(names)
+      this.namesList.next(
+        names.sort(( a, b ) => {
+          return a.toLowerCase() < b.toLowerCase()
+          ? -1
+          : 1
+        })
+      )
     })
    }
 
