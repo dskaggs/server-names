@@ -4,8 +4,9 @@
     <span> <button (click)= "selectLetter('')">All</button> | </span>
   </p>
 </div>
-
-<ng-container *ngIf="names$ | async as names" >
-  <span *ngFor="let name of names;">{{ name }} </span>
-</ng-container>
+<div class="name-list">
+  <ng-container *ngIf="names$ | async as names">
+    <button class="server-name" *ngFor="let name of names;">{{ name }}</button>
+  </ng-container>
+</div>
 
