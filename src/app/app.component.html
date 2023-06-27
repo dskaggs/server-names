@@ -1,3 +1,10 @@
 <app-header></app-header>
-<app-name-list></app-name-list>
-<app-about></app-about>
+<mat-grid-list cols="3" gutterSize="15px">
+  <mat-grid-tile colspan="2">
+    <app-name-list></app-name-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <app-about></app-about>
+  </mat-grid-tile>
+
+</mat-grid-list>
