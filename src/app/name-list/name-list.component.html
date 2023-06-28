@@ -1,12 +1,14 @@
-<div>
+<ng-container>
   <p>|
     <span *ngFor="let letter of letters;" ><button (click)= "selectLetter(letter)">{{ letter }}</button> | </span>
     <span> <button (click)= "selectLetter('')">All</button> | </span>
   </p>
-</div>
-<div class="name-list">
-  <ng-container *ngIf="names$ | async as names">
-    <button class="server-name" *ngFor="let name of names;">{{ name }}</button>
-  </ng-container>
-</div>
+</ng-container>
+
+<ng-container *ngIf="names$ | async as names" class="name-list">
+  <mat-grid-list cols="10">
+    <mat-grid-tile *ngFor="let name of names;"><button class="server-name" >{{ name }}</button></mat-grid-tile>
+  </mat-grid-list>
+</ng-container>
+
 
