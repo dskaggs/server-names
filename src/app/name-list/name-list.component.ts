@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ServerNamesService } from '../services/server-names.service'
 
-
 @Component({
   selector: 'app-name-list',
   templateUrl: './name-list.component.html',

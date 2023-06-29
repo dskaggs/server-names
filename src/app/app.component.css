@@ -1,8 +1,7 @@
 mat-grid-list { height: 100% }
-mat-grid-tile { overflow: auto; }
-
-mat-grid-tile.about-text{
-  display: table-cell;
-  vertical-align: top;
+mat-grid-tile {
+  overflow: auto;
+  justify-content: left !important ;
+  align-items: top !important;
 }
 
