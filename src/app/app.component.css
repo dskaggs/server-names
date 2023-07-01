@@ -1,7 +1,14 @@
-mat-grid-list { height: 100% }
-mat-grid-tile {
-  overflow: auto;
-  justify-content: left !important ;
-  align-items: top !important;
+.grid-three-column{
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: 1;
 }
 
+.row-two-thirds-left{
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.row-one-third-right{
+  grid-column: 3;
+}
