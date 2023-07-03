@@ -7,8 +7,10 @@
 .row-two-thirds-left{
   grid-column-start: 1;
   grid-column-end: 2;
+  padding: 1em;
 }
 
 .row-one-third-right{
   grid-column: 3;
+  padding: 1em;
 }
