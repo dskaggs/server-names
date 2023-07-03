@@ -1,8 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { ServerNamesService } from '../services/server-names.service'
-
 
 @Component({
   selector: 'app-name-list',

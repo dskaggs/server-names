@@ -1,0 +1,8 @@
+div.name-list{
+  min-width: 90%
+}
+
+button.server-name{
+  margin: 5px;
+  padding: 2px 10px 2px 10px;
+}
